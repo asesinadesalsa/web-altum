@@ -255,21 +255,21 @@
                         <li><i class="fa-solid fa-clock" aria-hidden="true"></i> <span>Lunes a Viernes, 9 a 18 hs</span></li>
                     </ul>
                 </div>
-                <!-- TODO: reemplazar FORMSPREE_FORM_ID con el ID real de Formspree (ej: xabcdefg) -->
-                <form id="contact-form" action="https://formspree.io/f/FORMSPREE_FORM_ID" method="POST"
-                    class="contact-form">
+                <form id="contact-form" name="contact" method="POST" data-netlify="true" class="contact-form">
+                    <input type="hidden" name="form-name" value="contact">
                     <div class="form-group">
-                        <label for="name" class="sr-only">Nombre</label>
-                        <input type="text" id="name" name="name" placeholder="Nombre" required>
+                        <label for="name" class="sr-only">Nombre *</label>
+                        <input type="text" id="name" name="name" placeholder="Nombre *" required>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="sr-only">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <label for="email" class="sr-only">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="Email *" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="sr-only">Mensaje</label>
-                        <textarea id="message" name="message" placeholder="Cuéntanos sobre tu empresa" rows="5" required></textarea>
+                        <label for="message" class="sr-only">Mensaje *</label>
+                        <textarea id="message" name="message" placeholder="Cuéntanos sobre tu empresa *" rows="5" required></textarea>
                     </div>
+                    <p class="form-required-note">* Todos los campos son obligatorios</p>
                     <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
                     <div id="form-status" class="form-status"></div>
                 </form>

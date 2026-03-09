@@ -130,8 +130,11 @@ h6 {
 .section-subtitle,
 .section-desc {
     font-size: 1.1rem;
-    color: white;
+    color: var(--text-color);
     max-width: 700px;
+}
+.section-subtitle {
+    color: white;
 }
 
 .about .section-desc {
@@ -615,6 +618,13 @@ h6 {
     outline: none;
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-required-note {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.6;
+    margin-bottom: 1rem;
 }
 
 .form-status {

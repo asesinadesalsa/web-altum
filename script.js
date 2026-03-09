@@ -110,12 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerText = 'Enviando...';
 
             try {
-                const response = await fetch(contactForm.action, {
+                const response = await fetch('/', {
                     method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
                 });
 
                 if (response.ok) {
@@ -123,12 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     formStatus.className = 'form-status success';
                     contactForm.reset();
                 } else {
-                    const data = await response.json();
-                    if (Object.hasOwn(data, 'errors')) {
-                        formStatus.innerText = data.errors.map(error => error.message).join(", ");
-                    } else {
-                        formStatus.innerText = 'Ups! Hubo un problema al enviar el mensaje. Inténtalo de nuevo.';
-                    }
+                    formStatus.innerText = 'Ups! Hubo un problema al enviar el mensaje. Inténtalo de nuevo.';
                     formStatus.className = 'form-status error';
                 }
             } catch (error) {
