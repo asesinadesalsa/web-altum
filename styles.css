@@ -227,8 +227,11 @@ h6 {
     background-size: cover;
     background-position: center;
     z-index: -1;
-    background-image: url('assets/hero-bg.png');
-    /* Force background image */
+    background-image: url('assets/hero-bg.png'); /* fallback para browsers sin soporte WebP */
+    background-image: image-set(
+        url('assets/hero-bg.webp') type('image/webp'),
+        url('assets/hero-bg.png')  type('image/png')
+    );
 }
 
 .hero-bg::after {
@@ -898,4 +901,13 @@ h6 {
     .contact-form {
         padding: 2rem 1.5rem;
     }
+}
+
+
+.text-color-black {
+    color: var(--primary-color);
+}
+
+.section.about {
+    padding-top: 0;
 }
