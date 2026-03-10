@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Configuration constants
+    const HEADER_HEIGHT_PX = 80;       // Height of the fixed header in pixels
+    const HEADER_SCROLL_TRIGGER = 50;  // Scroll distance (px) before header changes style
+    const COUNTER_STEPS = 200;         // Number of steps in the stat counter animation
+    const COUNTER_INTERVAL_MS = 15;    // Milliseconds between each counter step
+    const OBSERVER_THRESHOLD = 0.3;    // Fraction of section visible to trigger animation
+
     // Mobile navigation toggle
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('.nav');
@@ -8,11 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
         nav.classList.toggle('active');
         hamburger.classList.toggle('active');
 
-        if (nav.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+        const isOpen = nav.classList.contains('active');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
     // Close mobile menu when clicking a link
@@ -20,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             nav.classList.remove('active');
             hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Abrir menú');
             document.body.style.overflow = '';
         });
     });
@@ -27,12 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scrolling for anchor links is handled by CSS (scroll-behavior: smooth), 
     // but header offset needs JS if strictly needed. 
     // Usually CSS scroll-padding-top on html is better.
-    document.documentElement.style.scrollPaddingTop = '80px'; // Offset for fixed header
+    document.documentElement.style.scrollPaddingTop = `${HEADER_HEIGHT_PX}px`; // Offset for fixed header
 
     // Navbar scroll effect
     const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
+        if (window.scrollY > HEADER_SCROLL_TRIGGER) {
             header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
             header.style.background = 'rgba(15, 23, 42, 0.98)';
         } else {
@@ -49,8 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = +stat.getAttribute('data-target');
             if (isNaN(target)) return;
 
-            const speed = 200;
-            const increment = target / speed;
+            const increment = target / COUNTER_STEPS;
 
             let current = 0; // Start from 0 explicitly
 
@@ -58,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (current < target) {
                     current += increment;
                     stat.innerText = Math.ceil(current);
-                    setTimeout(updateCount, 15);
+                    setTimeout(updateCount, COUNTER_INTERVAL_MS);
                 } else {
                     stat.innerText = target + (stat.classList.contains('stat-number') ? '+' : '');
                 }
@@ -83,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const observer = new IntersectionObserver(observerCallback, { threshold: 0.3 });
+    const observer = new IntersectionObserver(observerCallback, { threshold: OBSERVER_THRESHOLD });
     if (statsSection) observer.observe(statsSection);
     if (statsBanner) observer.observe(statsBanner);
 
@@ -103,12 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.innerText = 'Enviando...';
 
             try {
-                const response = await fetch(contactForm.action, {
+                const response = await fetch('/', {
                     method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams(formData).toString()
                 });
 
                 if (response.ok) {
@@ -116,12 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     formStatus.className = 'form-status success';
                     contactForm.reset();
                 } else {
-                    const data = await response.json();
-                    if (Object.hasOwn(data, 'errors')) {
-                        formStatus.innerText = data.errors.map(error => error.message).join(", ");
-                    } else {
-                        formStatus.innerText = 'Ups! Hubo un problema al enviar el mensaje. Inténtalo de nuevo.';
-                    }
+                    formStatus.innerText = 'Ups! Hubo un problema al enviar el mensaje. Inténtalo de nuevo.';
                     formStatus.className = 'form-status error';
                 }
             } catch (error) {

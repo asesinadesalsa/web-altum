@@ -3,9 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ALTUM - Soluciones Estratégicas</title>
-    <meta name="description" content="ALTUM - Creamos valor y soluciones estratégicas para tu negocio.">
+    <meta name="description" content="ALTUM - Actuamos como el director financiero de tu PyME. Estrategia, datos y ejecución para el orden financiero que tu empresa necesita.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+    <!-- Open Graph -->
+<meta property="og:type" content="website">
+    <meta property="og:url" content="https://altumpymes.com">
+    <meta property="og:title" content="ALTUM - Soluciones Estratégicas">
+    <meta property="og:description" content="Actuamos como el director financiero de tu PyME. Estrategia, datos y ejecución para el orden financiero que tu empresa necesita.">
+    <meta property="og:image" content="https://altumpymes.com/assets/hero-bg.png">
+    <meta property="og:locale" content="es_AR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ALTUM - Soluciones Estratégicas">
+    <meta name="twitter:description" content="Actuamos como el director financiero de tu PyME. Estrategia, datos y ejecución para el orden financiero que tu empresa necesita.">
+    <meta name="twitter:image" content="https://altumpymes.com/assets/hero-bg.png">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,11 +44,11 @@
                     <li><a href="#contact" class="nav-link btn-primary">Contacto</a></li>
                 </ul>
             </nav>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
@@ -52,9 +70,9 @@
         </section>
 
         <!-- Clients Section (Moved up as requested: "Estas empresas ya...") -->
-        <section id="clients" class="section clients-mini" style="padding: 3rem 0; background: var(--bg-color);">
+        <section id="clients" class="section clients-mini">
             <div class="container">
-                <p class="section-subtitle" style="text-align: center; margin-bottom: 2rem; font-weight: 500;">Estas
+                <p class="section-subtitle">Estas
                     empresas ya tercerizan su gerencia financiera con nosotros:</p>
                 <div class="ticker-container">
                     <div class="ticker-wrapper">
@@ -151,16 +169,16 @@
                 <div class="section-header">
                     <span class="section-tag">SERVICIOS</span>
                     <h2 class="section-title">Soluciones a Medida</h2>
-                    <p class="section-subtitle">Lo que hacemos por vos para darte alivio inmediato y ventaja
+                    <p class="section-subtitle text-color-black">Lo que hacemos por vos para darte alivio inmediato y ventaja
                         competitiva.</p>
                 </div>
                 <div class="services-grid">
                     <!-- Service A -->
                     <div class="service-card">
-                        <div class="service-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="service-icon"><i class="fa-solid fa-user-tie" aria-hidden="true"></i></div>
                         <h3>Gestión Financiera Integral</h3>
                         <p class="service-intro"><strong>Director financiero (CFO) externo.</strong></p>
-                        <p>Implementamos una estructura profesional de control, análisis and planificación para que
+                        <p>Implementamos una estructura profesional de control, análisis y planificación para que
                             sepas,
                             en tiempo real, qué pasa con tu caja y tus costos.</p>
                         <div class="service-features-box">
@@ -173,7 +191,7 @@
 
                     <!-- Service B -->
                     <div class="service-card">
-                        <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                        <div class="service-icon"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></div>
                         <h3>Financiamiento Estratégico</h3>
                         <p class="service-intro"><strong>Intermediario técnico especializado.</strong></p>
                         <p>Identificamos la herramienta que mejor se adapta a tu necesidad para garantizar que la
@@ -188,13 +206,12 @@
 
                     <!-- Service C -->
                     <div class="service-card">
-                        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <div class="service-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
                         <h3>Administración de Inversiones</h3>
                         <p class="service-intro"><strong>Cash Management avanzado.</strong></p>
                         <p>Diseñamos carteras a medida que superan el rendimiento de los fondos bancarios tradicionales
                             (como el FIMA).</p>
-                        <img src="assets/fima-vs-altum.png" alt="Comparativa FIMA vs Altum" class="comparison-img"
-                            style="margin: 1rem 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-radius: 4px;">
+                        <img src="assets/fima-preview.png" alt="Comparativa FIMA vs Altum" class="comparison-img">
                         <div class="service-features-box">
                             <p><strong>¿Por qué elegirnos?</strong> Operamos con los mejores brokers (como Balanz) y
                                 garantizamos liquidez inmediata con rentabilidad real superior.</p>
@@ -203,7 +220,7 @@
 
                     <!-- Service D -->
                     <div class="service-card">
-                        <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <div class="service-icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
                         <h3>Investigación de Mercado & Big Data</h3>
                         <p class="service-intro"><strong>Inteligencia competitiva y datos.</strong></p>
                         <p>Combinamos Big Data para que sepas dónde crecer, qué ofrecer y a qué precio, minimizando
@@ -226,17 +243,17 @@
         <section id="stats" class="section stats-banner">
             <div class="container stats-container">
                 <div class="stat-box">
-                    <i class="fa-solid fa-briefcase"></i>
+                    <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
                     <span class="stat-val" data-target="1500">0</span>
                     <span class="stat-desc">Empresas Financiadas</span>
                 </div>
                 <div class="stat-box">
-                    <i class="fa-solid fa-chart-pie"></i>
+                    <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
                     <span class="stat-val" data-target="200">0</span>
                     <span class="stat-desc">Portafolios Administrados</span>
                 </div>
                 <div class="stat-box">
-                    <i class="fa-solid fa-users"></i>
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
                     <span class="stat-val" data-target="50">0</span>
                     <span class="stat-desc">Estructura Profesional</span>
                 </div>
@@ -252,21 +269,25 @@
                     <p class="contact-desc">Coordinemos una primera reunión de diagnóstico para ordenar la gestión
                         financiera y recuperar el control de tu negocio.</p>
                     <ul class="contact-list">
-                        <li><i class="fa-solid fa-envelope"></i> <span>info@altumpymes.com</span></li>
-                        <li><i class="fa-solid fa-clock"></i> <span>Lunes a Viernes, 9 a 18 hs</span></li>
+                        <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>info@altumpymes.com</span></li>
+                        <li><i class="fa-solid fa-clock" aria-hidden="true"></i> <span>Lunes a Viernes, 9 a 18 hs</span></li>
                     </ul>
                 </div>
-                <form id="contact-form" action="https://formspree.io/f/info@altumpymes.com" method="POST"
-                    class="contact-form">
+                <form id="contact-form" name="contact" method="POST" data-netlify="true" class="contact-form">
+                    <input type="hidden" name="form-name" value="contact">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Nombre" required>
+                        <label for="name" class="sr-only">Nombre *</label>
+                        <input type="text" id="name" name="name" placeholder="Nombre *" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="Email" required>
+                        <label for="email" class="sr-only">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="Email *" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="Cuéntanos sobre tu empresa" rows="5" required></textarea>
+                        <label for="message" class="sr-only">Mensaje *</label>
+                        <textarea id="message" name="message" placeholder="Cuéntanos sobre tu empresa *" rows="5" required></textarea>
                     </div>
+                    <p class="form-required-note">* Todos los campos son obligatorios</p>
                     <button type="submit" class="btn btn-primary btn-block">Enviar Mensaje</button>
                     <div id="form-status" class="form-status"></div>
                 </form>
@@ -278,12 +299,11 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <a href="#" class="logo">ALTUM<span class="dot">.</span></a>
-                <p>&copy; 2024 ALTUM. Todos los derechos reservados.</p>
+                <p>&copy; 2026 ALTUM. Todos los derechos reservados.</p>
             </div>
             <div class="footer-links">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/altumarg/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de ALTUM"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/altumpyme?igsh=ZXBsZnEwY2p0aXFo" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ALTUM"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
             </div>
         </div>
     </footer>
